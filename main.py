@@ -7,10 +7,7 @@ from db import get_connection
 app = FastAPI()
 
 # allow your frontend to call this API
-origins = [
-    "http://localhost:3000",            # local Next.js dev
-    "https://your-frontend.vercel.app", # change after deploy
-]
+origins=["*"],
 
 app.add_middleware(
     CORSMiddleware,
