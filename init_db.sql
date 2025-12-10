@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS campaigns;
 CREATE TABLE campaigns (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
-    status TEXT NOT NULL,         -- 'Active' or 'Paused'
+    status TEXT NOT NULL,        
     clicks INTEGER NOT NULL,
     cost REAL NOT NULL,
     impressions INTEGER NOT NULL

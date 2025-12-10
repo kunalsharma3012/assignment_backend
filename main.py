@@ -6,8 +6,8 @@ from db import get_connection
 
 app = FastAPI()
 
-# allow your frontend to call this API
-origins=["*"],
+
+origins=["https://assignment-frontend-lilac.vercel.app/"],
 
 app.add_middleware(
     CORSMiddleware,
@@ -20,11 +20,6 @@ app.add_middleware(
 
 @app.get("/campaigns")
 def get_campaigns(status: Optional[str] = Query(default=None)):
-    """
-    GET /campaigns
-    Optional query param: ?status=Active or ?status=Paused
-    Returns: list of campaign dicts.
-    """
     conn = get_connection()
     cursor = conn.cursor()
 
@@ -36,6 +31,5 @@ def get_campaigns(status: Optional[str] = Query(default=None)):
     rows = cursor.fetchall()
     conn.close()
 
-    # convert sqlite Row -> dict
     campaigns: List[Dict[str, Any]] = [dict(row) for row in rows]
     return campaigns
