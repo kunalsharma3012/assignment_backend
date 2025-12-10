@@ -7,11 +7,11 @@ from db import get_connection
 app = FastAPI()
 
 
-origin=["https://assignment-frontend-lilac.vercel.app"],
+
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origin, 
+    allow_origins=["https://assignment-frontend-lilac.vercel.app"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
